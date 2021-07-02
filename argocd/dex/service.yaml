@@ -1,0 +1,26 @@
+---
+# Source: argo-cd/templates/dex/service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: RELEASE-NAME-argocd-dex-server
+  labels:
+    helm.sh/chart: argo-cd-3.6.11
+    app.kubernetes.io/name: argocd-dex-server
+    app.kubernetes.io/instance: RELEASE-NAME
+    app.kubernetes.io/component: dex-server
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/part-of: argocd
+spec:
+  ports:
+  - name: http
+    protocol: TCP
+    port: 5556
+    targetPort: http
+  - name: grpc
+    protocol: TCP
+    port: 5557
+    targetPort: grpc
+  selector:
+    app.kubernetes.io/name: argocd-dex-server
+    app.kubernetes.io/instance: RELEASE-NAME
