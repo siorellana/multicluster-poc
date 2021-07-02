@@ -1,0 +1,21 @@
+
+apiVersion: apps/v1 # Usa apps/v1beta2 para versiones anteriores a 1.9.0
+kind: Deployment
+metadata:
+  name: app03-deployment
+  namespace: app03
+spec:
+  selector:
+    matchLabels:
+      app: app03
+  replicas: 2 # indica al controlador que ejecute 2 pods
+  template:
+    metadata:
+      labels:
+        app: app03
+    spec:
+      containers:
+      - name: nginx
+        image: image
+        ports:
+        - containerPort: 80

@@ -1,0 +1,6 @@
+kind: Namespace
+apiVersion: v1
+metadata:
+  name: app03
+  # labels:
+  #   istio-injection: enabled
