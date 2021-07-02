@@ -8,5 +8,5 @@ resources:
 
 images:
 - name: image
-  newName: nginx
-  newTag: 1.7.9
+  newName: siorellana/cats
+  newTag: "403"
