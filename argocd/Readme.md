@@ -53,10 +53,6 @@ fEiyohRXHcUByWgB
 Argocd Minikube
 dVUqXgPHkiqxRftr
 
-
 ## Crear aplicaciones
 
 argocd app create app02 --repo https://github.com/siorellana/multicluster-poc.git --path app02 --dest-server https://kubernetes.default.svc --dest-namespace app02
-
-
-
