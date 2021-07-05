@@ -1,0 +1,22 @@
+$databaseconfig = <<SCRIPT
+echo 'Instalando BBDD'
+sudo apt update
+sudo apt install -y mariadb-server
+echo 'configurando BBDD'
+sudo mysql -u root -e "use mysql; UPDATE user SET plugin='mysql_native_password' WHERE User='root'; flush privileges"
+sudo service mysql restart
+sudo mysql -u root -e "CREATE USER 'username'@'localhost' IDENTIFIED BY 'password'; GRANT ALL PRIVILEGES ON *.* TO 'username'@'localhost' WITH GRANT OPTION; CREATE USER 'username'@'%' IDENTIFIED BY 'password'; GRANT ALL PRIVILEGES ON *.* TO 'username'@'%' WITH GRANT OPTION; FLUSH PRIVILEGES"
+sudo mysql -u root -e "CREATE DATABASE Solutions COLLATE latin1_swedish_ci"
+echo 'TODO OK'
+SCRIPT
+Vagrant.configure(2) do |config|
+    config.vm.box = "bento/ubuntu-18.04"
+    config.vm.hostname = "database01"
+    config.vm.network "private_network", ip: "192.168.50.14"
+    config.vm.synced_folder "mysql/", "/etc/mysql"
+    config.vm.provision "shell", inline: $databaseconfig
+    config.vm.provider "virtualbox" do |vb|
+    vb.memory = "512"
+    vb.cpus = "1"
+    end
+  end

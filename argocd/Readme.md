@@ -25,7 +25,7 @@ TEST SUITE: None
 NOTES:
 In order to access the server UI you have the following options:
 
-1. kubectl port-forward service/argo-argocd-server -n argocd 8080:443
+1. kubectl port-forward service/argo-argocd-server -n argocd 8082:443
 
     and then open the browser on http://localhost:8080 and accept the certificate
 
@@ -46,3 +46,17 @@ kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.pas
 `
 helm template argo/argo-cd --output-dir ../argocd
 `
+
+Argocd k3s
+fEiyohRXHcUByWgB
+
+Argocd Minikube
+dVUqXgPHkiqxRftr
+
+
+## Crear aplicaciones
+
+argocd app create app02 --repo https://github.com/siorellana/multicluster-poc.git --path app02 --dest-server https://kubernetes.default.svc --dest-namespace app02
+
+
+

@@ -1,0 +1,15 @@
+$installk3smaster = <<SCRIPT
+#export K3S_DATASTORE_ENDPOINT='mysql://username:password@tcp(192.168.50.10:3306)/Solutions'
+sudo curl -sfL https://get.k3s.io | K3S_URL=https://192.168.50.10:6443 K3S_TOKEN=K100d55db5ce02a70ca4ec86dc247b3adbfbca260054fef766542b6cc7c96a67862::server:09d42fa33a0ac6cd600cddcf28fe77a4 sh -
+#sudo k3s agent --server https://192.168.50.10:6443 --token K10f6eeef9edab7186ca31958a1540b190bab007a27dcabd193763f3d9d2a71a6b8::server:041ec0aa8651ca61fa6e8c2bdf871bcd
+SCRIPT
+Vagrant.configure(2) do |config|
+    config.vm.box = "bento/ubuntu-18.04"
+    config.vm.hostname = "worker30"
+    config.vm.network "private_network", ip: "192.168.50.30"
+    config.vm.provision "shell", inline: $installk3smaster
+    config.vm.provider "virtualbox" do |vb|
+    vb.memory = "1024"
+    vb.cpus = "1"
+    end
+  end

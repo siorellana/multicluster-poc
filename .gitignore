@@ -1,0 +1,8 @@
+k3s/worker01/.vagrant
+k3s/database/.vagrant
+k3s/master1/.vagrant
+k3s/master1/ubuntu-bionic-18.04-cloudimg-console.log
+k3s/master2/.vagrant
+k3s/worker03/.vagrant
+k3s/worker04/.vagrant
+k3s/worker05/.vagrant

@@ -2,7 +2,7 @@
 
 In this repositories you will find the manifest used to make a POC of multicluster deployment using Argo Cd Multicluster Features.
 
-```
+```tree
 .
 ├── Readme.md
 ├── app01
