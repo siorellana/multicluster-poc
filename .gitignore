@@ -6,3 +6,6 @@ k3s/master2/.vagrant
 k3s/worker03/.vagrant
 k3s/worker04/.vagrant
 k3s/worker05/.vagrant
+*/**/.DS_Store
+k3s/standalone/.vagrant
+k3s/standalone/ubuntu-bionic-18.04-cloudimg-console.log

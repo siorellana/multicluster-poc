@@ -47,12 +47,6 @@ kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.pas
 helm template argo/argo-cd --output-dir ../argocd
 `
 
-Argocd k3s
-fEiyohRXHcUByWgB
-
-Argocd Minikube
-dVUqXgPHkiqxRftr
-
 ## Crear aplicaciones
 
-argocd app create app02 --repo https://github.com/siorellana/multicluster-poc.git --path app02 --dest-server https://kubernetes.default.svc --dest-namespace app02
+argocd app create app02 --repo <https://github.com/siorellana/multicluster-poc.git> --path app02 --dest-server <https://kubernetes.default.svc> --dest-namespace app02
