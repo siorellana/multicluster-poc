@@ -8,7 +8,7 @@ spec:
   selector:
     matchLabels:
       app: app01
-  replicas: 2 # indica al controlador que ejecute 2 pods
+  replicas: 4 # indica al controlador que ejecute 2 pods
   template:
     metadata:
       labels:
