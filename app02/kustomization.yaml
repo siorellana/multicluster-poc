@@ -9,4 +9,4 @@ resources:
 images:
 - name: image
   newName: siorellana/cats
-  newTag: "203"
+  newTag: "401"
